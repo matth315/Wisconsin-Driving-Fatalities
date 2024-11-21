@@ -22,7 +22,7 @@ library(tmaptools)
 
 
 #Import the accident data
-accident <- read_csv("www/accident.csv", col_types = cols(HOURNAME = col_character()))
+accident <- read_csv("accident.csv", col_types = cols(HOURNAME = col_character()))
 accident$DAY_WEEKNAME <- factor(accident$DAY_WEEKNAME, levels=c("Sunday", "Monday",
                                                                 "Tuesday", "Wednesday",
                                                                 "Thursday", "Friday",
@@ -89,7 +89,7 @@ wisconsin$COUNTYNAME <- sub(" \\(\\d+\\)$", "", wisconsin$COUNTYNAME)
 
 
 #Import Wisconsin Map Data frame
-mapData <- st_read("www/County_Boundaries_24K/County_Boundaries_24K.shp", stringsAsFactors = FALSE)
+mapData <- st_read("County_Boundaries_24K.shp", stringsAsFactors = FALSE)
 mapData$COUNTY_NAM <- toupper(mapData$COUNTY_NAM)
 colnames(mapData)[colnames(mapData) == "COUNTY_NAM"] <- "COUNTYNAME"
 
